@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putnbr.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ghavenga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 07:42:02 by ghavenga          #+#    #+#             */
-/*   Updated: 2016/05/11 09:28:43 by ghavenga         ###   ########.fr       */
+/*   Created: 2016/05/10 11:30:09 by oexall            #+#    #+#             */
+/*   Updated: 2016/05/10 11:32:48 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putnbr(int n)
+void	ft_putnbr(int n)
 {
-	char	*string;
-
-	string = ft_itoa(n);
-	ft_putstr(string);
+	if (n < 0)
+	{
+		n = -n;
+		ft_putchar('-');
+	}
+	if (n >= 10)
+	{
+		ft_putnbr(n / 10);
+	}
+	ft_putchar(n % 10 + '0');
 }
