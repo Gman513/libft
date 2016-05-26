@@ -6,13 +6,14 @@
 /*   By: ghavenga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/09 09:36:25 by ghavenga          #+#    #+#             */
-/*   Updated: 2016/05/09 10:34:56 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/05/26 15:19:33 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char letter)
+size_t	ft_putchar(char letter)
 {
 	write(1, &letter, 1);
+	return (1);
 }

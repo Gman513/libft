@@ -6,22 +6,26 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/10 11:30:09 by oexall            #+#    #+#             */
-/*   Updated: 2016/05/10 11:32:48 by oexall           ###   ########.fr       */
+/*   Updated: 2016/05/26 15:53:19 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+size_t	ft_putnbr(int n)
 {
+	size_t	len;
+
+	len = 0;
 	if (n < 0)
 	{
 		n = -n;
-		ft_putchar('-');
+		len += ft_putchar('-');
 	}
 	if (n >= 10)
 	{
-		ft_putnbr(n / 10);
+		len += ft_putnbr(n / 10);
 	}
-	ft_putchar(n % 10 + '0');
+	len += ft_putchar(n % 10 + '0');
+	return (len);
 }
