@@ -1,60 +1,73 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strsplit.c                                         :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ghavenga <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: khansman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/10 11:08:39 by ghavenga          #+#    #+#             */
-/*   Updated: 2016/05/14 15:20:56 by ghavenga         ###   ########.fr       */
+/*   Created: 2016/05/15 15:57:41 by khansman          #+#    #+#             */
+/*   Updated: 2016/05/15 15:58:17 by khansman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
-int			count_words(char *s, char c)
+static int		ft_cnt_parts(const char *s, char c)
 {
-	int		words;
+	int		cnt;
+	int		in_substring;
 
-	while (*s && *s == c)
-		s++;
-	if (*s)
-		words = 1;
-	else
-		words = 0;
-	while (*s)
+	in_substring = 0;
+	cnt = 0;
+	while (*s != '\0')
 	{
-		if (*s == c && s[1] && s[1] != c)
-			words++;
-		s++;
-	}
-	return (words);
-}
-
-char		**ft_strsplit(char const *s, char c)
-{
-	int		words;
-	char	*start;
-	char	**result;
-
-	words = count_words((char *)s, c);
-	if (!s || !c)
-		return (NULL);
-	result = (char **)malloc(sizeof(char *) * (count_words((char *)s, c) + 1));
-	start = (char *)s;
-	while (*s)
-	{
-		if (*s == c)
+		if (in_substring == 1 && *s == c)
+			in_substring = 0;
+		if (in_substring == 0 && *s != c)
 		{
-			if (start != s)
-				*(result++) = ft_strsub(start, 0, s - start);
-			start = (char *)s + 1;
+			in_substring = 1;
+			cnt++;
 		}
 		s++;
 	}
-	if (start != s)
-		*(result++) = ft_strsub(start, 0, s - start);
-	*result = NULL;
-	return (result - words);
+	return (cnt);
+}
+
+static int		ft_wlen(const char *s, char c)
+{
+	int		len;
+
+	len = 0;
+	while (*s != c && *s != '\0')
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
+
+char			**ft_strsplit(char const *s, char c)
+{
+	char	**t;
+	int		nb_word;
+	int		index;
+
+	index = 0;
+	nb_word = ft_cnt_parts((const char *)s, c);
+	t = (char **)malloc(sizeof(*t) * (ft_cnt_parts((const char *)s, c) + 1));
+	if (t == NULL)
+		return (NULL);
+	while (nb_word--)
+	{
+		while (*s == c && *s != '\0')
+			s++;
+		t[index] = ft_strsub((const char *)s, 0, ft_wlen((const char *)s, c));
+		if (t[index] == NULL)
+			return (NULL);
+		s = s + ft_wlen(s, c);
+		index++;
+	}
+	t[index] = NULL;
+	return (t);
 }
