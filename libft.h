@@ -6,7 +6,7 @@
 /*   By: ghavenga <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/11 07:24:56 by ghavenga          #+#    #+#             */
-/*   Updated: 2016/05/26 15:53:39 by oexall           ###   ########.fr       */
+/*   Updated: 2016/05/30 09:08:14 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# define BUFF_SIZE 32
 
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
@@ -68,5 +69,6 @@ int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_int_len(int n);
+int		get_next_line(const int fd, char **line);
 
 #endif
