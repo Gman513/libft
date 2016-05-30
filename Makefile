@@ -6,7 +6,7 @@
 #    By: ghavenga <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/09 09:29:00 by ghavenga          #+#    #+#              #
-#    Updated: 2016/05/26 10:02:28 by ghavenga         ###   ########.fr        #
+#    Updated: 2016/05/30 09:09:07 by oexall           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME4 = putnbr.c putnbr_fd.c putstr.c putstr_fd.c strcat.c strchr.c strclr.c
 NAME5 = strcmp.c strcpy.c strdel.c strdup.c strequ.c striter.c striteri.c
 NAME6 = strjoin.c strlcat.c strlen.c strmap.c strmapi.c strncat.c strncmp.c
 NAME7 = strncpy.c strnequ.c strnew.c strnstr.c strrchr.c strsplit.c strstr.c
-NAME8 = strsub.c strtrim.c tolower.c toupper.c
+NAME8 = strsub.c strtrim.c tolower.c toupper.c get_next_line.c
 HEADER = libft.h
 LIBNAME = libft.a
 CC = gcc

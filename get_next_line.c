@@ -6,11 +6,13 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/16 07:33:11 by oexall            #+#    #+#             */
-/*   Updated: 2016/05/30 09:07:34 by oexall           ###   ########.fr       */
+/*   Updated: 2016/05/30 09:10:02 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 static int	ft_read(const int fd, char **file)
 {
